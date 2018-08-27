@@ -1,0 +1,17 @@
+<br />
+<h2>
+  Overall Portfolio Distribution
+</h2>
+<br /><br /><br />
+<div style="width: 90%;">
+    <canvas
+        baseChart
+        [chartType]="'doughnut'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [colors]="myColors"
+        [legend]="false"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+  </div>
