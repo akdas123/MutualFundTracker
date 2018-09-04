@@ -15,7 +15,8 @@ export class LinechartComponent implements OnInit {
   };
 
   csvUrl: string;
-  investUrl = 'assets/portfolio/investmentDetails.csv';
+  investUrl = 'http://10.195.9.176:3000/getInvDetails';
+  navDataUrl = 'http://10.195.9.176:3000/getCsv/';
   lines: any[];
   transacDetails: any[];
   chartLabels: any[];
@@ -60,7 +61,7 @@ export class LinechartComponent implements OnInit {
 
       // In a real app: dispatch action to load the details here.
    });
-    this.csvUrl = 'assets/navData/' + this.id + '.csv';
+    this.csvUrl = this.navDataUrl + this.id;
     this.chartLabels = [];
     this.alldates = [];
     this.dataPoints = [];

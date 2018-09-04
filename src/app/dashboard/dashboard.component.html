@@ -4,7 +4,7 @@
     <div class="col-sm-1 col-md-1 col-lg-1">
         <br />
     </div>
-    <div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="col-sm-7 col-md-7 col-lg-7">
         <h2>Dashboard</h2>
         <br />
         <br />
@@ -12,15 +12,17 @@
             <table class="table table-hover">
                 <thead class="black white-text">
                     <th>Index</th>
+		    <th> </th>
                     <th>Mutual fund Name</th>
-                    <th>Invested Amount</th>
-                    <th>Current Market Value</th>
+                    <th>Investments</th>
+                    <th>Market Value</th>
                 </thead>
                 <tbody>
                     <tr *ngFor="let mf of mflist">
                         <td>
                             {{mf.index}}
                         </td>
+                        <td> + </td>
                         <td>
                             <a href='/chart/{{mf.id}}'>{{mf.name}}</a>
                         </td>
@@ -34,6 +36,18 @@
                             &#8377; {{mf.marketVal}}
                          </td>
                     </tr>
+		    <tr>
+<!--			<table class="table table-hover">
+                		<thead class="black white-text">
+                    			<th>Index</th>
+                   			<th>Mutual fund Name</th>
+                   			<th>Investments</th>
+                    			<th>Market Value</th>
+                		</thead>
+               			<tbody>
+               		 	</tbody>
+			</table>-->
+		    </tr>
                 </tbody>
             </table>
         </div>

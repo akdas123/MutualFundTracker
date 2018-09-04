@@ -11,7 +11,8 @@ import { MarketValueComputeService } from '../market-value-compute.service';
 export class DashboardComponent implements OnInit {
 
   mflist: Mf[] = [];
-  invFundurl = '/assets/portfolio/totalInvestment.csv';
+//  invFundurl = '/assets/portfolio/totalInvestment.csv';
+  invFundurl = 'http://10.195.9.176:3000/getAllInvestments';
 
   constructor(private http: Http,
               private mVal: MarketValueComputeService) { }

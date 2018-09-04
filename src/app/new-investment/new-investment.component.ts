@@ -15,7 +15,8 @@ export class NewInvestmentComponent implements OnInit {
   mfNameList: string[] = [];
   mfIdList: number[] = [];
   amcIdList: number[] = [];
-  amclistUrl = '/assets/mfcode';
+  amclistUrl = 'http://10.195.9.176:3000/getList';
+  mflistUrl = 'http://10.195.9.176:3000/getMfList/';
   amcIdSelected: number;
   mfIdSelected: number;
   amount: number;
@@ -43,8 +44,8 @@ export class NewInvestmentComponent implements OnInit {
     const index = this.amcNameList.indexOf(newVal);
     this.amcIdSelected = this.amcIdList[index];
     console.log(this.amcIdSelected);
-    const mflistUrl = 'assets/mflist/' + this.amcIdSelected + '_list.csv';
-    this.http.get(mflistUrl).subscribe(res => {
+    const fullMflistUrl = this.mflistUrl + this.amcIdSelected;
+    this.http.get(fullMflistUrl).subscribe(res => {
       const allTextLines = res.text().split(/\r\n|\n/);
       const headers = allTextLines[0].split(';');
       this.mfIdList = [];
@@ -80,9 +81,9 @@ export class NewInvestmentComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
       console.log(reqJson);
-      this.http.post('http://localhost:3000/addInvestment', reqJson, options).subscribe(
+      this.http.post('http://10.195.9.176:3000/addInvestment', reqJson, options).subscribe(
       data => {
-        alert('ok');
+       console.log('success'); 
       },
       error => {
         console.log(JSON.stringify(error.json()));

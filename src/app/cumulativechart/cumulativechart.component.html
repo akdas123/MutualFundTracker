@@ -1,9 +1,40 @@
 <br />
-<h2>
+<h2 align="center">
   Overall Portfolio Distribution
 </h2>
+<div class="row"  >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+	<br />
+    </div>
+    <div class="col-sm-8 col-md-8 col-lg-8">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td style="font-size: 25px;">Total Investments  : </td>
+                        <td style="font-size: 25px;">&#8377; {{totalInv}}</td>
+                    </tr>
+                    <tr *ngIf=isGain>
+                        <td style="font-size: 25px;">Current Market Value  :  </td>
+                        <td style="font-size: 25px; color: green; font-weight: bold;">&#8377; {{currentVal}}</td>
+                    </tr>
+                    <tr *ngIf=!isGain>
+                        <td style="font-size: 25px;">Current Market Value  :  </td>
+                        <td style="font-size: 25px; color: red; font-weightL bold;">&#8377; {{currentVal}}</td>
+                    </tr>
+                    <tr *ngIf=isGain>
+                        <td style="font-size: 25px;">Overall Gain  :  </td>
+                        <td style="font-size: 25px; color: green; font-weight: bold;">&#9650; &#8377; {{totalGain}}</td>
+                    </tr>
+                    <tr *ngIf=!isGain>
+                        <td style="font-size: 25px;">Overall Gain  :  </td>
+                        <td style="font-size: 25px; color: red; font-weight: bold;">&#9660; &#8377; {{totalGain}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+
 <br /><br /><br />
-<div style="width: 90%;">
+<div style="width: 100%;">
     <canvas
         baseChart
         [chartType]="'doughnut'"
@@ -15,3 +46,4 @@
         (chartClick)="onChartClick($event)">
     </canvas>
   </div>
+</div>
