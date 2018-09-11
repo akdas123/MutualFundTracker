@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, RequestOptions} from '@angular/http';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-investment',
@@ -22,7 +23,7 @@ export class NewInvestmentComponent implements OnInit {
   amount: number;
   date: string;
   formatedDate: string;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
   ngOnInit() {
     this.http.get(this.amclistUrl).subscribe(res => {
@@ -84,6 +85,8 @@ export class NewInvestmentComponent implements OnInit {
       this.http.post('http://10.195.9.176:3000/addInvestment', reqJson, options).subscribe(
       data => {
        console.log('success'); 
+       alert('Success');
+       this.router.navigate(['./dashboard']);
       },
       error => {
         console.log(JSON.stringify(error.json()));

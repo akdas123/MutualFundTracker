@@ -31,7 +31,14 @@ export class DashboardComponent implements OnInit {
                 mf.setName(data[1]);
                 mf.setAmount(+data[2]);
                 mf.setMarketVal(+data[4]);
+                mf.setDayGain(+data[5]);
+                mf.setTotalGain(+data[6]);
                 if (mf.getMarketVal() < mf.getAmount()) {
+                  mf.setTotalProfit(false);
+                } else {
+                  mf.setTotalProfit(true);
+                }
+                if (mf.getDayGain() < 0 ) {
                   mf.setProfit(false);
                 } else {
                   mf.setProfit(true);

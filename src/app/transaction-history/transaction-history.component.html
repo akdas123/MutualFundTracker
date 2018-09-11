@@ -1,0 +1,53 @@
+<br />
+<br />
+<div class="row header_banner"  >
+    <div class="col-sm-2 col-md-2 col-lg-2">
+        <br />
+    </div>
+    <div class="col-sm-8 col-md-8 col-lg-8">
+        <h2>Transaction History</h2>
+        <br />
+        <br />
+        <div class="form-group">
+            <table class="table table-hover">
+                <thead class="black white-text tbl-header">
+                    <th sortable-column="index">Index</th>
+                    <th>Mutual fund Name</th>
+                    <th>Investment Amount</th>
+                    <th>Investment Date</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let mf of mflist">
+                        <td>
+                            {{mf.index}}
+                        </td>
+                        <td>
+                            {{mf.name}}
+                        </td>
+                        <td>
+                           {{mf.amount}}
+                        </td>
+                        <td>
+                           {{mf.date}}
+                        </td>
+                        <td>
+			    <div class="btn-toolbar">
+			    <div class="btn-group">
+     			    	<button class="btn btn-outline-primary" (click)="onEdit(mf.index)">Edit</button>
+                            </div>	
+				&nbsp;
+				&nbsp;
+			    <div class="btn-group">
+     			    	<button class="btn btn-outline-danger " (click)="onDelete(mf.index)">
+					Delete
+				</button>
+                            </div>	
+                            </div>	
+			</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

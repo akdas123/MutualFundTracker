@@ -6,6 +6,8 @@ import { LinechartComponent } from './linechart/linechart.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewInvestmentComponent } from './new-investment/new-investment.component';
+import { EditInvestmentComponent } from './edit-investment/edit-investment.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 
 
 
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'chart/:id', component: LinechartComponent },
   { path: 'new investment', component: NewInvestmentComponent },
+  { path: 'transactions', component: TransactionHistoryComponent },
+  { path: 'edit investment/:index', component: EditInvestmentComponent },
 ];
 
 @NgModule({

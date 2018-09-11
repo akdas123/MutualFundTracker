@@ -21,13 +21,21 @@
                         <td style="font-size: 25px;">Current Market Value  :  </td>
                         <td style="font-size: 25px; color: red; font-weightL bold;">&#8377; {{currentVal}}</td>
                     </tr>
-                    <tr *ngIf=isGain>
+                    <tr *ngIf=isTotalGain>
                         <td style="font-size: 25px;">Overall Gain  :  </td>
                         <td style="font-size: 25px; color: green; font-weight: bold;">&#9650; &#8377; {{totalGain}}</td>
                     </tr>
-                    <tr *ngIf=!isGain>
+                    <tr *ngIf=!isTotalGain>
                         <td style="font-size: 25px;">Overall Gain  :  </td>
                         <td style="font-size: 25px; color: red; font-weight: bold;">&#9660; &#8377; {{totalGain}}</td>
+                    </tr>
+                    <tr *ngIf=isDayGain>
+                        <td style="font-size: 25px;">Day's Gain  :  </td>
+                        <td style="font-size: 25px; color: green; font-weight: bold;">&#9650; &#8377; {{dayGain}}</td>
+                    </tr>
+                    <tr *ngIf=!isDayGain>
+                        <td style="font-size: 25px;">Day's Gain  :  </td>
+                        <td style="font-size: 25px; color: red; font-weight: bold;">&#9660; &#8377; {{dayGain}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -16,6 +16,8 @@ import { NewInvestmentComponent } from './new-investment/new-investment.componen
 
 
 import { MarketValueComputeService } from './market-value-compute.service';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { EditInvestmentComponent } from './edit-investment/edit-investment.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { MarketValueComputeService } from './market-value-compute.service';
     HomeComponent,
     NavbarComponent,
     CumulativechartComponent,
-    NewInvestmentComponent
+    NewInvestmentComponent,
+    TransactionHistoryComponent,
+    EditInvestmentComponent
   ],
   imports: [
     BrowserModule,

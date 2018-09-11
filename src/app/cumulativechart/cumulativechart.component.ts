@@ -20,7 +20,9 @@ export class CumulativechartComponent implements OnInit {
   totalInv: number;
   currentVal: number;
   totalGain: number;
-  isGain: boolean;
+  dayGain: number;
+  isTotalGain: boolean;
+  isDayGain: boolean;
 
   chartData: any[];
   chartLabels: any[];
@@ -43,6 +45,8 @@ export class CumulativechartComponent implements OnInit {
       const headers = allTextLines[0].split(';');
       this.totalInv = 0;
       this.currentVal = 0;
+      this.dayGain = 0;
+      this.totalGain = 0;
       for ( let i = 1; i < allTextLines.length; i++) {
         const data = allTextLines[i].split(';');
         if (data.length === headers.length) {
@@ -50,16 +54,22 @@ export class CumulativechartComponent implements OnInit {
                 this.dataPoints.push(+data[4]);
         	this.totalInv += +data[2];
 		this.currentVal += +data[4];
+		this.dayGain += +data[5];
+		this.totalGain += +data[6];
 	}
     }
     this.chartData = [
       {data: this.dataPoints}
     ];
-    this.totalGain = this.currentVal - this.totalInv; 
     if ( this.totalGain < 0 ) {
-	this.isGain = false;
+	this.isTotalGain = false;
     } else {
-	this.isGain = true;	
+	this.isTotalGain = true;	
+    }
+    if ( this.dayGain < 0 ) {
+	this.isDayGain = false;
+    } else {
+	this.isDayGain = true;	
     }
     });
 
